@@ -1,0 +1,2345 @@
+{
+  "at": "2026-10-05T17:34:00.182Z",
+  "summary": {
+    "id": "jas-fatty-liver-index",
+    "cases": 235,
+    "numericOutputs": 131,
+    "mathematicalDomainRejections": 0,
+    "inputValidationRejections": 104,
+    "localeNumericalComparisons": 1310,
+    "conditionalFieldContracts": 0,
+    "failed": 0,
+    "independentExpectedValues": "Pinned historical Decimal60 source-derived vectors; fresh package replay, not a new independent oracle",
+    "clinicalApproval": "not-performed",
+    "professionalLanguageApproval": "not-performed"
+  },
+  "results": [
+    {
+      "label": "fli-18-160-50-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.1,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0.1,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 1.6,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 1.6,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 9.5,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 9.5,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 65.6,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 65.6,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 8.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 8.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 55.3,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 55.3,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-160-50-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 95.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 95.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-18-170-70-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 10.4,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 10.4,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 5.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 5.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 93.2,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 93.2,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 41,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 41,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 89.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 89.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-170-70-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.4,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 99.4,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 3.2,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 3.2,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 29.8,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 29.8,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 88.6,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 88.6,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 79.7,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 79.7,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 98.1,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 98.1,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.9,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 99.9,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 97.9,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 97.9,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.8,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 99.8,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-175-120-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-18-100-400-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-18-100-400-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-160-50-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.1,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0.1,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 1.6,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 1.6,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 9.5,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 9.5,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 65.6,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 65.6,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 8.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 8.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 55.3,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 55.3,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-160-50-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 95.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 95.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-45-170-70-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 10.4,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 10.4,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 5.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 5.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 93.2,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 93.2,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 41,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 41,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 89.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 89.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-170-70-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.4,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 99.4,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 3.2,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 3.2,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 29.8,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 29.8,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 88.6,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 88.6,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 79.7,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 79.7,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 98.1,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 98.1,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.9,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 99.9,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 97.9,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 97.9,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.8,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 99.8,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-175-120-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-45-100-400-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-45-100-400-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-160-50-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.1,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0.1,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 1.6,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 1.6,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 0.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 9.5,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 9.5,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 65.6,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 65.6,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 8.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 8.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 55.3,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 55.3,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-160-50-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 95.8,
+        "bmi": 19.5
+      },
+      "obtained": {
+        "value": 95.8,
+        "bmi": 19.5
+      }
+    },
+    {
+      "label": "fli-75-170-70-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 10.4,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 10.4,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 5.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 5.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 93.2,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 93.2,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 41,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 41,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 89.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 89.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-170-70-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.4,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 99.4,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 3.2,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 3.2,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 29.8,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 29.8,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 88.6,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 88.6,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 79.7,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 79.7,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 98.1,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 98.1,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.9,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 99.9,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 97.9,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 97.9,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.8,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 99.8,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-175-120-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 39.2
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 39.2
+      }
+    },
+    {
+      "label": "fli-75-100-400-1-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-1-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-1-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-150-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-150-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-150-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-2000-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-2000-35",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-75-100-400-2000-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 400
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 400
+      }
+    },
+    {
+      "label": "fli-bound-ageYears-18",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-ageYears-75",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-heightCm-100",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.8,
+        "bmi": 70
+      },
+      "obtained": {
+        "value": 99.8,
+        "bmi": 70
+      }
+    },
+    {
+      "label": "fli-bound-heightCm-230",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 14.1,
+        "bmi": 13.2
+      },
+      "obtained": {
+        "value": 14.1,
+        "bmi": 13.2
+      }
+    },
+    {
+      "label": "fli-bound-weightKg-20",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 6.4,
+        "bmi": 6.9
+      },
+      "obtained": {
+        "value": 6.4,
+        "bmi": 6.9
+      }
+    },
+    {
+      "label": "fli-bound-weightKg-400",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 100,
+        "bmi": 138.4
+      },
+      "obtained": {
+        "value": 100,
+        "bmi": 138.4
+      }
+    },
+    {
+      "label": "fli-bound-waistCm-40",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 5.1,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 5.1,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-waistCm-220",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 99.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 99.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-triglyceridesMgDl-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 0.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 0.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-triglyceridesMgDl-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 89.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 89.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-ggtUl-1",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 5.6,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 5.6,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-bound-ggtUl-2000",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 93.2,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 93.2,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-decimal-strings",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-scientific-strings",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 43,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 43,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-29.94",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 29.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 29.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-29.96",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 30,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 30,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-30",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 30,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 30,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-49.94",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 49.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 49.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-49.96",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 50,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 50,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-50",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 50,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 50,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-59.94",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 59.9,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 59.9,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-59.96",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 60,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 60,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-solved-target-60",
+      "kind": "source-numerical",
+      "passed": true,
+      "expected": {
+        "value": 60,
+        "bmi": 24.2
+      },
+      "obtained": {
+        "value": 60,
+        "bmi": 24.2
+      }
+    },
+    {
+      "label": "fli-null-root",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-array-root",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-boolean",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-false",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-array",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-object",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-null",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-missing",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-empty",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-whitespace",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-infinite",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-nan",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-hex",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-binary",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-octal",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-comma",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-underscore",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-below-min",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ageYears-above-max",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-boolean",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-false",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-array",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-object",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-null",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-missing",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-empty",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-whitespace",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-infinite",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-nan",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-hex",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-binary",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-octal",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-comma",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-underscore",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-below-min",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-heightCm-above-max",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-boolean",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-false",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-array",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-object",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-null",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-missing",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-empty",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-whitespace",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-infinite",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-nan",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-hex",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-binary",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-octal",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-comma",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-underscore",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-below-min",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-weightKg-above-max",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-boolean",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-false",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-array",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-object",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-null",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-missing",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-empty",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-whitespace",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-infinite",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-nan",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-hex",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-binary",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-octal",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-comma",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-underscore",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-below-min",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-waistCm-above-max",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-boolean",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-false",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-array",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-object",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-null",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-missing",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-empty",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-whitespace",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-infinite",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-nan",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-hex",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-binary",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-octal",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-comma",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-underscore",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-below-min",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-above-max",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-boolean",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-false",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-array",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-object",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-null",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-missing",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-empty",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-whitespace",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-infinite",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-nan",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-hex",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-binary",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-octal",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-comma",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-underscore",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-below-min",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    },
+    {
+      "label": "fli-ggtUl-above-max",
+      "kind": "input-validation",
+      "passed": true,
+      "obtainedRejection": "INVALID_INPUT"
+    }
+  ]
+}

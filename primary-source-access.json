@@ -1,0 +1,16 @@
+{
+  "schema": "elucenia-extra4-primary-source-access-20261005",
+  "accessedAt": "2026-10-05",
+  "scope": "Read institutional/publisher primary equations and rights statements; no provider terms accepted and no paper full text copied into the package.",
+  "sources": [
+    {
+      "id": "bedogni-2006",
+      "url": "https://link.springer.com/article/10.1186/1471-230X-6-33",
+      "access": "Full publisher equation, limitations and rights section read",
+      "edition": "BMC Gastroenterology 2006;6:33",
+      "rights": "Article CC-BY-2.0 with attribution; no complete article, image or clinical data bundled."
+    }
+  ],
+  "clinicalApproval": "not-performed",
+  "professionalLanguageApproval": "not-performed"
+}

@@ -1,0 +1,126 @@
+{
+  "tool": {
+    "id": "jas-fatty-liver-index",
+    "title": "Fatty Liver Index · Bedogni 2006",
+    "kind": "calculator",
+    "methodVersion": "Bedogni 2006 · FLI",
+    "implementationVersion": "ELUCENIA 2026-10-05 · 04180f497639327e8f258a86c1f17a030eb2c12992b8d1eee20540f0a9517e00",
+    "fields": [
+      [
+        "ageYears",
+        "Idade",
+        "num",
+        {
+          "min": 18,
+          "max": 75,
+          "unit": "anos"
+        }
+      ],
+      [
+        "heightCm",
+        "Altura",
+        "num",
+        {
+          "min": 100,
+          "max": 230,
+          "unit": "cm"
+        }
+      ],
+      [
+        "weightKg",
+        "Peso",
+        "num",
+        {
+          "min": 20,
+          "max": 400,
+          "unit": "kg"
+        }
+      ],
+      [
+        "waistCm",
+        "Cintura",
+        "num",
+        {
+          "min": 40,
+          "max": 220,
+          "unit": "cm"
+        }
+      ],
+      [
+        "triglyceridesMgDl",
+        "Triglicerídeos",
+        "num",
+        {
+          "min": 1,
+          "max": 2000,
+          "unit": "mg/dL"
+        }
+      ],
+      [
+        "ggtUl",
+        "GGT",
+        "num",
+        {
+          "min": 1,
+          "max": 2000,
+          "unit": "U/L"
+        }
+      ]
+    ],
+    "formula": "L = 0,953 × ln(triglicerídeos) + 0,139 × IMC + 0,718 × ln(GGT) + 0,053 × cintura − 15,745; FLI = 100 × exp(L)/(1 + exp(L)). Triglicerídeos em mg/dL, GGT em U/L, IMC em kg/m² e cintura em cm.",
+    "sources": [
+      [
+        "Bedogni et al. 2006 · Fatty Liver Index",
+        "https://doi.org/10.1186/1471-230X-6-33"
+      ]
+    ],
+    "sourceIds": [
+      "bedogni-2006"
+    ],
+    "primarySources": [
+      {
+        "id": "bedogni-2006",
+        "url": "https://link.springer.com/article/10.1186/1471-230X-6-33",
+        "version": "Bedogni et al. 2006, BMC Gastroenterology 6:33",
+        "accessedAt": "2026-10-03",
+        "access": "Full publisher open-access HTML: original coefficients, ln definition, BMI derivation, 18–75 population, limitations read.",
+        "scope": "FLI logistic equation; waist cm, BMI kg/m², triglycerides mg/dL, GGT U/L. No individual steatosis/fibrosis diagnosis claimed."
+      }
+    ],
+    "limits": "Índice derivado em adultos. Não diagnostica esteatose nem avalia fibrose. Revisão clínica independente não realizada.",
+    "sourceLimitEvidence": [
+      "Synthetic numerical inputs only; no patient data.",
+      "Decimal conformance is not independent clinical validation, diagnostic approval or professional translation approval.",
+      "FLI software input bounds can generate mathematically valid stress cases outside a plausible clinical phenotype; no applicability is claimed for those combinations.",
+      "Tanaka estimates population sodium excretion, not individual intake. NaCl equivalent conversion does not establish ingestion or dietary advice.",
+      "Tanaka publisher full text was unavailable; original indexed abstract coefficients and primary study unit reproduction were read.",
+      "Sampson direct-LDL path is verified as an arithmetic extension; 2021 calibration uses Sampson-estimated LDL and is not claimed to validate this extension clinically.",
+      "TG800 bound is supported for the Sampson2020 LDL equation; sdLDL estimation and other bounds require population/method review.",
+      "No claims about all global formulas, third-party integrations, clinical performance, UI multilingual rendering or deployment are made by this module-only audit."
+    ],
+    "methodModule": "method.cjs",
+    "numericOutputCases": 131,
+    "mathematicalDomainRejections": 0,
+    "inputValidationRejections": 104,
+    "clinicalApproval": "not-performed",
+    "professionalLanguageApproval": "not-performed",
+    "methodEditionEvidence": {
+      "primarySourceIds": [
+        "bedogni-2006"
+      ],
+      "methodEditions": {
+        "FLI": 2006
+      },
+      "policies": "Age18–75 reflects study population. Other input limits are technical software policies, not clinically validated phenotype bounds. No diagnostic cutoff/category is generated."
+    },
+    "versionEvidence": [
+      {
+        "id": "bedogni-2006",
+        "url": "https://link.springer.com/article/10.1186/1471-230X-6-33",
+        "access": "Full publisher equation, limitations and rights section read",
+        "edition": "BMC Gastroenterology 2006;6:33",
+        "rights": "Article CC-BY-2.0 with attribution; no complete article, image or clinical data bundled."
+      }
+    ]
+  }
+}

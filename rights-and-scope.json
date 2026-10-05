@@ -1,0 +1,29 @@
+{
+  "ownCodeLicense": "Apache-2.0",
+  "ownCodeAttribution": "ELUCENIA · Felipe Guedes",
+  "externalApplicationCodeCopied": false,
+  "paperFullTextCopied": false,
+  "clinicalDataCopied": false,
+  "providerPermissionInvented": false,
+  "unrestrictedPublicationLicenseClaim": false,
+  "sources": [
+    {
+      "id": "bedogni-2006",
+      "url": "https://link.springer.com/article/10.1186/1471-230X-6-33",
+      "access": "Full publisher equation, limitations and rights section read",
+      "edition": "BMC Gastroenterology 2006;6:33",
+      "rights": "Article CC-BY-2.0 with attribution; no complete article, image or clinical data bundled."
+    }
+  ],
+  "methodScope": {
+    "primarySourceIds": [
+      "bedogni-2006"
+    ],
+    "methodEditions": {
+      "FLI": 2006
+    },
+    "policies": "Age18–75 reflects study population. Other input limits are technical software policies, not clinically validated phenotype bounds. No diagnostic cutoff/category is generated."
+  },
+  "clinicalApproval": "not-performed",
+  "professionalLanguageApproval": "not-performed"
+}

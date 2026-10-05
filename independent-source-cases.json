@@ -1,0 +1,6091 @@
+{
+  "schema": "elucenia-source-derived-Decimal60-vectors",
+  "id": "jas-fatty-liver-index",
+  "originalEvidence": {
+    "file": "reports/review-20261003/extra-additional-source-oracles.json",
+    "sha256": "0488f820cd353b1d7fe24f759d5d439dd6b46638a951093b93a04ece349e1a3d"
+  },
+  "oracle": {
+    "file": "tests\\extra-additional-source-oracle.py",
+    "sha256": "420c95bd5c1f9adfe7131a1ce8c595c259ac88cf14f895460ec38f40a301e286",
+    "precision": 60,
+    "rounding": "ROUND_HALF_UP to one decimal"
+  },
+  "sources": [
+    {
+      "id": "bedogni-2006",
+      "url": "https://link.springer.com/article/10.1186/1471-230X-6-33",
+      "version": "Bedogni et al. 2006, BMC Gastroenterology 6:33",
+      "accessedAt": "2026-10-03",
+      "access": "Full publisher open-access HTML: original coefficients, ln definition, BMI derivation, 18–75 population, limitations read.",
+      "scope": "FLI logistic equation; waist cm, BMI kg/m², triglycerides mg/dL, GGT U/L. No individual steatosis/fibrosis diagnosis claimed."
+    },
+    {
+      "id": "tanaka-2002",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/11850766/",
+      "version": "Tanaka et al. 2002, J Hum Hypertens 16:97–103, DOI10.1038/sj.jhh.1001307",
+      "accessedAt": "2026-10-03",
+      "access": "Indexed original PubMed abstract with all predicted-creatinine/sodium coefficients and population-only limitation; publisher full text unavailable to this audit.",
+      "scope": "Population mean sodium excretion, not individual salt intake. 591 Japanese INTERSALT items; external group 513. Potassium equation outside implemented scope."
+    },
+    {
+      "id": "tanaka-unit-reproduction",
+      "url": "https://www.nature.com/articles/s41440-021-00707-0",
+      "version": "Hypertension Research 2021, real-world hypertensive outpatient primary study",
+      "accessedAt": "2026-10-03",
+      "access": "Indexed primary study methods equation explicitly states mg/dL÷10 conversion in urinary ratio.",
+      "scope": "Confirms unit implementation; does not remove original individual-use limitations."
+    },
+    {
+      "id": "sampson-2021",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/33876239/",
+      "version": "Sampson et al. 2021, Clin Chem 67:987–997, DOI10.1093/clinchem/hvab048",
+      "accessedAt": "2026-10-03",
+      "access": "Indexed original PubMed abstract: lbLDL equation and sdLDL subtraction, calibration route using Sampson-estimated LDL-C. PMC/publisher full text blocked in this audit.",
+      "scope": "Arithmetic of lbLDL=1.43LDL−0.14ln(TG)LDL−8.99 and sdLDL=LDL−lbLDL. Direct LDL variant is a local extension and is not represented as published clinical validation."
+    },
+    {
+      "id": "sampson-2020",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7240357/",
+      "version": "Sampson et al. 2020, JAMA Cardiol 5:540–548, DOI10.1001/jamacardio.2020.0013",
+      "accessedAt": "2026-10-03",
+      "access": "Full original primary HTML study methods, TG≤800 mg/dL use, exclusions and limitations read; displayed equation artwork corroborated by ADLM equation.",
+      "scope": "Sampson–NIH LDL-C panel estimation; typeIII hyperlipidemia excluded; no automatic diagnosis."
+    },
+    {
+      "id": "adlm-equation",
+      "url": "https://academic.oup.com/jalm/article/9/5/1040/7717178",
+      "version": "ADLM Guidance Document on the Measurement and Reporting of Lipids and Lipoproteins, 2024",
+      "accessedAt": "2026-10-03",
+      "access": "Indexed official ADLM document Eq4, coefficients and mg/dL terms.",
+      "scope": "Corroborates panel equation coefficients0.948,0.971,8.56,2140,16100,9.44."
+    }
+  ],
+  "cases": [
+    {
+      "label": "fli-18-160-50-1-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.00687368584696776012870424450936505775891816900907537583135190",
+          "bmi": "19.53125",
+          "sourceLogit": "-9.58515625"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-1-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.1,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.0882017422739587620378607302453401704374480696372757032841973",
+          "bmi": "19.53125",
+          "sourceLogit": "-7.03241634185060097797101152895139422894119139179542794235288"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-1-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 1.6,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "1.58640534507510788284929209361419987517476653862678031622502",
+          "bmi": "19.53125",
+          "sourceLogit": "-4.1277082840487848644636737434029087209490182970229597371656"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-150-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.808184176183096785194145365280495861749723285558387776600689",
+          "bmi": "19.53125",
+          "sourceLogit": "-4.8100208147262682702366617883340770931591936891138017373543"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-150-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 9.5,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "9.47232765208197663718364347786082601316880119331579955516181",
+          "bmi": "19.53125",
+          "sourceLogit": "-2.2572809065768692482076733172854713221003850809092296797072"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-150-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 65.6,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "65.6430443094824946122558266163456128164008265140552931566476",
+          "bmi": "19.53125",
+          "sourceLogit": "0.6474271512249468652996644682630141858917880138632385254801"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-2000-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 8.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "8.77440770387798191261105584381000363469042819789045421354517",
+          "bmi": "19.53125",
+          "sourceLogit": "-2.3414962060563955095179402193077604610924992159650148043437"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-2000-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 55.3,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "55.2615412138277387960058939386324711777599048604751139022620",
+          "bmi": "19.53125",
+          "sourceLogit": "0.2112437020930035125110482517408453099663093922395572533034"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-160-50-2000-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 95.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "95.7545964837959910329930061921102747596378969280914093379347",
+          "bmi": "19.53125",
+          "sourceLogit": "3.1159517598948196260183860372893308179584824870120254584907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-1-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.0496109333287265742984128501666639386072257259738936891314516",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-7.60821799307958477508650519031141868512110726643598615916955"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-1-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.633394399130169987074525082723653382938449789910572964915143",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-5.0554780849301857530575167192628129140622986582314141015224"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-1-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 10.4,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "10.4259288915484214083236544625823741428891281689084835895721",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.1507700271283696395501789337143274060701255634589458963351"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-150-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 5.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "5.55624181959833935040483770201043322039721811060873500042743",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.8330825578058530453231669786454957782803009555497878965239"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-150-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-150-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 93.2,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "93.2413328670436670433605211716928743287397734648397466612419",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.6243654081453620902131592779515955007706807474272523663106"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-2000-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 41,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "40.9856664497515740014130430643731645579967709179117622528790",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.3645579491359802846044454096191791462136064824010009635133"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-2000-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 89.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "89.9183215568627909754082711139249196270845929143780330519742",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.1881819590134187374245430614294266248452021258035710941338"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-170-70-2000-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.4,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "99.3897223766542454189240014063155427157646774733327999020629",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "5.0928900168152348509318808469779121328373752205760392993211"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-1-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 3.2,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "3.20318213439132329055943701898907619673729499477890606186339",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "-3.4084693877551020408163265306122448979591836734693877551020"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-1-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 29.8,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "29.8232351264482881249412493227133793161964301272967460415095",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "-0.8557294796057030187873380595636391269003750652648156974549"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-1-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 88.6,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "88.5844369036892070775641818596298879713844895275802121745557",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "2.0489785781961130947199997259848463810917980295076525077324"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-150-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 79.7,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "79.6840969313143352886070149589001840669863164550349877833784",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "1.3666660475186296889470116810536780088816226374168105075436"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-150-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 98.1,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "98.0533579859482701214903907755397580007137791376895856332621",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "3.9194059556680287109760001521022837799404312456213825651907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-150-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.9,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.8913942010588256000785114208222600751489511050461522325666",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "6.8241140134698448244833379376507692879326043403938507703780"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-2000-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 97.9,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "97.8859358657298622538851991065187596267753635156969424632105",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "3.8351906561885024496657332500799946409483171105655974405542"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-2000-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.8,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.8321090636291039612033333397050946774734790171224856157331",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "6.3879305643379014716947217211286004120071257187701694982013"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-175-120-2000-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.9907908758562332552984277425799397791555015806785365083675",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "9.2926386221397175852020595066770859199992988135426377033886"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-1-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999957604499689365487530764983400692436121",
+          "bmi": "400",
+          "sourceLogit": "51.515"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-1-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999996698746239614985035441931654529426043",
+          "bmi": "400",
+          "sourceLogit": "54.0677399081493990220289884710486057710588086082045720576471"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-1-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999819207575916338263240080686635478344",
+          "bmi": "400",
+          "sourceLogit": "56.9724479659512151355363262565970912790509817029770402628344"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-150-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999642311650349469486647075220429659694",
+          "bmi": "400",
+          "sourceLogit": "56.2901354352737317297633382116659229068408063108861982626457"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-150-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999972147515640155653069610730860083382",
+          "bmi": "400",
+          "sourceLogit": "58.8428753434231307517923266827145286778996149190907703202928"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-150-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999998474664921371794779075732012524959",
+          "bmi": "400",
+          "sourceLogit": "61.7475834012249468652996644682630141858917880138632385254801"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-2000-1",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999969700310440686411430826791003732613",
+          "bmi": "400",
+          "sourceLogit": "58.7586600439436044904820597806922395389075007840349851956563"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-2000-35",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999997640623100015834979488021235928570",
+          "bmi": "400",
+          "sourceLogit": "61.3113999520930035125110482517408453099663093922395572533034"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-18-100-400-2000-2000",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999999870789251588649685300726110666960",
+          "bmi": "400",
+          "sourceLogit": "64.2161080098948196260183860372893308179584824870120254584907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-1-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.00687368584696776012870424450936505775891816900907537583135190",
+          "bmi": "19.53125",
+          "sourceLogit": "-9.58515625"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-1-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.1,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.0882017422739587620378607302453401704374480696372757032841973",
+          "bmi": "19.53125",
+          "sourceLogit": "-7.03241634185060097797101152895139422894119139179542794235288"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-1-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 1.6,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "1.58640534507510788284929209361419987517476653862678031622502",
+          "bmi": "19.53125",
+          "sourceLogit": "-4.1277082840487848644636737434029087209490182970229597371656"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-150-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.808184176183096785194145365280495861749723285558387776600689",
+          "bmi": "19.53125",
+          "sourceLogit": "-4.8100208147262682702366617883340770931591936891138017373543"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-150-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 9.5,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "9.47232765208197663718364347786082601316880119331579955516181",
+          "bmi": "19.53125",
+          "sourceLogit": "-2.2572809065768692482076733172854713221003850809092296797072"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-150-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 65.6,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "65.6430443094824946122558266163456128164008265140552931566476",
+          "bmi": "19.53125",
+          "sourceLogit": "0.6474271512249468652996644682630141858917880138632385254801"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-2000-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 8.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "8.77440770387798191261105584381000363469042819789045421354517",
+          "bmi": "19.53125",
+          "sourceLogit": "-2.3414962060563955095179402193077604610924992159650148043437"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-2000-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 55.3,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "55.2615412138277387960058939386324711777599048604751139022620",
+          "bmi": "19.53125",
+          "sourceLogit": "0.2112437020930035125110482517408453099663093922395572533034"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-160-50-2000-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 95.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "95.7545964837959910329930061921102747596378969280914093379347",
+          "bmi": "19.53125",
+          "sourceLogit": "3.1159517598948196260183860372893308179584824870120254584907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-1-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.0496109333287265742984128501666639386072257259738936891314516",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-7.60821799307958477508650519031141868512110726643598615916955"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-1-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.633394399130169987074525082723653382938449789910572964915143",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-5.0554780849301857530575167192628129140622986582314141015224"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-1-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 10.4,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "10.4259288915484214083236544625823741428891281689084835895721",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.1507700271283696395501789337143274060701255634589458963351"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-150-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 5.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "5.55624181959833935040483770201043322039721811060873500042743",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.8330825578058530453231669786454957782803009555497878965239"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-150-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-150-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 93.2,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "93.2413328670436670433605211716928743287397734648397466612419",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.6243654081453620902131592779515955007706807474272523663106"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-2000-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 41,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "40.9856664497515740014130430643731645579967709179117622528790",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.3645579491359802846044454096191791462136064824010009635133"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-2000-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 89.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "89.9183215568627909754082711139249196270845929143780330519742",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.1881819590134187374245430614294266248452021258035710941338"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-170-70-2000-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.4,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "99.3897223766542454189240014063155427157646774733327999020629",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "5.0928900168152348509318808469779121328373752205760392993211"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-1-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 3.2,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "3.20318213439132329055943701898907619673729499477890606186339",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "-3.4084693877551020408163265306122448979591836734693877551020"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-1-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 29.8,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "29.8232351264482881249412493227133793161964301272967460415095",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "-0.8557294796057030187873380595636391269003750652648156974549"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-1-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 88.6,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "88.5844369036892070775641818596298879713844895275802121745557",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "2.0489785781961130947199997259848463810917980295076525077324"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-150-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 79.7,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "79.6840969313143352886070149589001840669863164550349877833784",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "1.3666660475186296889470116810536780088816226374168105075436"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-150-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 98.1,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "98.0533579859482701214903907755397580007137791376895856332621",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "3.9194059556680287109760001521022837799404312456213825651907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-150-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.9,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.8913942010588256000785114208222600751489511050461522325666",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "6.8241140134698448244833379376507692879326043403938507703780"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-2000-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 97.9,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "97.8859358657298622538851991065187596267753635156969424632105",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "3.8351906561885024496657332500799946409483171105655974405542"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-2000-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.8,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.8321090636291039612033333397050946774734790171224856157331",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "6.3879305643379014716947217211286004120071257187701694982013"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-175-120-2000-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.9907908758562332552984277425799397791555015806785365083675",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "9.2926386221397175852020595066770859199992988135426377033886"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-1-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999957604499689365487530764983400692436121",
+          "bmi": "400",
+          "sourceLogit": "51.515"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-1-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999996698746239614985035441931654529426043",
+          "bmi": "400",
+          "sourceLogit": "54.0677399081493990220289884710486057710588086082045720576471"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-1-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999819207575916338263240080686635478344",
+          "bmi": "400",
+          "sourceLogit": "56.9724479659512151355363262565970912790509817029770402628344"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-150-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999642311650349469486647075220429659694",
+          "bmi": "400",
+          "sourceLogit": "56.2901354352737317297633382116659229068408063108861982626457"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-150-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999972147515640155653069610730860083382",
+          "bmi": "400",
+          "sourceLogit": "58.8428753434231307517923266827145286778996149190907703202928"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-150-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999998474664921371794779075732012524959",
+          "bmi": "400",
+          "sourceLogit": "61.7475834012249468652996644682630141858917880138632385254801"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-2000-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999969700310440686411430826791003732613",
+          "bmi": "400",
+          "sourceLogit": "58.7586600439436044904820597806922395389075007840349851956563"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-2000-35",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999997640623100015834979488021235928570",
+          "bmi": "400",
+          "sourceLogit": "61.3113999520930035125110482517408453099663093922395572533034"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-45-100-400-2000-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999999870789251588649685300726110666960",
+          "bmi": "400",
+          "sourceLogit": "64.2161080098948196260183860372893308179584824870120254584907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-1-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.00687368584696776012870424450936505775891816900907537583135190",
+          "bmi": "19.53125",
+          "sourceLogit": "-9.58515625"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-1-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.1,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.0882017422739587620378607302453401704374480696372757032841973",
+          "bmi": "19.53125",
+          "sourceLogit": "-7.03241634185060097797101152895139422894119139179542794235288"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-1-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 1.6,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "1.58640534507510788284929209361419987517476653862678031622502",
+          "bmi": "19.53125",
+          "sourceLogit": "-4.1277082840487848644636737434029087209490182970229597371656"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-150-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "0.808184176183096785194145365280495861749723285558387776600689",
+          "bmi": "19.53125",
+          "sourceLogit": "-4.8100208147262682702366617883340770931591936891138017373543"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-150-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 9.5,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "9.47232765208197663718364347786082601316880119331579955516181",
+          "bmi": "19.53125",
+          "sourceLogit": "-2.2572809065768692482076733172854713221003850809092296797072"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-150-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 65.6,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "65.6430443094824946122558266163456128164008265140552931566476",
+          "bmi": "19.53125",
+          "sourceLogit": "0.6474271512249468652996644682630141858917880138632385254801"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-2000-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 8.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "8.77440770387798191261105584381000363469042819789045421354517",
+          "bmi": "19.53125",
+          "sourceLogit": "-2.3414962060563955095179402193077604610924992159650148043437"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-2000-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 55.3,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "55.2615412138277387960058939386324711777599048604751139022620",
+          "bmi": "19.53125",
+          "sourceLogit": "0.2112437020930035125110482517408453099663093922395572533034"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-160-50-2000-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 160,
+        "weightKg": 50,
+        "waistCm": 65,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 95.8,
+          "bmi": 19.5
+        },
+        "expectedDecimal": {
+          "value": "95.7545964837959910329930061921102747596378969280914093379347",
+          "bmi": "19.53125",
+          "sourceLogit": "3.1159517598948196260183860372893308179584824870120254584907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-1-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.0496109333287265742984128501666639386072257259738936891314516",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-7.60821799307958477508650519031141868512110726643598615916955"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-1-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.633394399130169987074525082723653382938449789910572964915143",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-5.0554780849301857530575167192628129140622986582314141015224"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-1-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 10.4,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "10.4259288915484214083236544625823741428891281689084835895721",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.1507700271283696395501789337143274060701255634589458963351"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-150-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 5.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "5.55624181959833935040483770201043322039721811060873500042743",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.8330825578058530453231669786454957782803009555497878965239"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-150-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-150-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 93.2,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "93.2413328670436670433605211716928743287397734648397466612419",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.6243654081453620902131592779515955007706807474272523663106"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-2000-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 41,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "40.9856664497515740014130430643731645579967709179117622528790",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.3645579491359802846044454096191791462136064824010009635133"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-2000-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 89.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "89.9183215568627909754082711139249196270845929143780330519742",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.1881819590134187374245430614294266248452021258035710941338"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-170-70-2000-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.4,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "99.3897223766542454189240014063155427157646774733327999020629",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "5.0928900168152348509318808469779121328373752205760392993211"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-1-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 3.2,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "3.20318213439132329055943701898907619673729499477890606186339",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "-3.4084693877551020408163265306122448979591836734693877551020"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-1-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 29.8,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "29.8232351264482881249412493227133793161964301272967460415095",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "-0.8557294796057030187873380595636391269003750652648156974549"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-1-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 88.6,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "88.5844369036892070775641818596298879713844895275802121745557",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "2.0489785781961130947199997259848463810917980295076525077324"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-150-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 79.7,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "79.6840969313143352886070149589001840669863164550349877833784",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "1.3666660475186296889470116810536780088816226374168105075436"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-150-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 98.1,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "98.0533579859482701214903907755397580007137791376895856332621",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "3.9194059556680287109760001521022837799404312456213825651907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-150-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.9,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.8913942010588256000785114208222600751489511050461522325666",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "6.8241140134698448244833379376507692879326043403938507703780"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-2000-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 97.9,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "97.8859358657298622538851991065187596267753635156969424632105",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "3.8351906561885024496657332500799946409483171105655974405542"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-2000-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.8,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.8321090636291039612033333397050946774734790171224856157331",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "6.3879305643379014716947217211286004120071257187701694982013"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-175-120-2000-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 175,
+        "weightKg": 120,
+        "waistCm": 130,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 39.2
+        },
+        "expectedDecimal": {
+          "value": "99.9907908758562332552984277425799397791555015806785365083675",
+          "bmi": "39.1836734693877551020408163265306122448979591836734693877551",
+          "sourceLogit": "9.2926386221397175852020595066770859199992988135426377033886"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-1-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999957604499689365487530764983400692436121",
+          "bmi": "400",
+          "sourceLogit": "51.515"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-1-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999996698746239614985035441931654529426043",
+          "bmi": "400",
+          "sourceLogit": "54.0677399081493990220289884710486057710588086082045720576471"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-1-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999819207575916338263240080686635478344",
+          "bmi": "400",
+          "sourceLogit": "56.9724479659512151355363262565970912790509817029770402628344"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-150-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999642311650349469486647075220429659694",
+          "bmi": "400",
+          "sourceLogit": "56.2901354352737317297633382116659229068408063108861982626457"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-150-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999972147515640155653069610730860083382",
+          "bmi": "400",
+          "sourceLogit": "58.8428753434231307517923266827145286778996149190907703202928"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-150-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999998474664921371794779075732012524959",
+          "bmi": "400",
+          "sourceLogit": "61.7475834012249468652996644682630141858917880138632385254801"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-2000-1",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999969700310440686411430826791003732613",
+          "bmi": "400",
+          "sourceLogit": "58.7586600439436044904820597806922395389075007840349851956563"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-2000-35",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999997640623100015834979488021235928570",
+          "bmi": "400",
+          "sourceLogit": "61.3113999520930035125110482517408453099663093922395572533034"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-75-100-400-2000-2000",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 100,
+        "weightKg": 400,
+        "waistCm": 220,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 400
+        },
+        "expectedDecimal": {
+          "value": "99.9999999999999999999999999870789251588649685300726110666960",
+          "bmi": "400",
+          "sourceLogit": "64.2161080098948196260183860372893308179584824870120254584907"
+        }
+      },
+      "coverage": [
+        "age invariance",
+        "ln endpoints",
+        "BMI derivation",
+        "low/high logistic stress"
+      ]
+    },
+    {
+      "label": "fli-bound-ageYears-18",
+      "input": {
+        "ageYears": 18,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-ageYears-75",
+      "input": {
+        "ageYears": 75,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-heightCm-100",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 100,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.8,
+          "bmi": 70
+        },
+        "expectedDecimal": {
+          "value": "99.7723587070203470609261761591498195983345462591684724200045",
+          "bmi": "70",
+          "sourceLogit": "6.0828753434231307517923266827145286778996149190907703202928"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-heightCm-230",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 230,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 14.1,
+          "bmi": 13.2
+        },
+        "expectedDecimal": {
+          "value": "14.0903598149418061375755462600554978884699025597373035304470",
+          "bmi": "13.2325141776937618147448015122873345935727788279773156899811",
+          "sourceLogit": "-1.8078051858774363559581459070775318135937688238203827987998"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-weightKg-20",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 20,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 6.4,
+          "bmi": 6.9
+        },
+        "expectedDecimal": {
+          "value": "6.38531200668613725790642944987569383700584442860246432987313",
+          "bmi": "6.92041522491349480968858131487889273356401384083044982698962",
+          "sourceLogit": "-2.6851869403138934696609605145173052321349871570337971537556"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-weightKg-400",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 400,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 100,
+          "bmi": 138.4
+        },
+        "expectedDecimal": {
+          "value": "99.9999830706143814164064656449397479001616307037308440978140",
+          "bmi": "138.408304498269896193771626297577854671280276816608996539792",
+          "sourceLogit": "15.5916296686826463227265827380778504772075733965994208393239"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-waistCm-40",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 40,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 5.1,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "5.06738388885010955815984948015240308329940855753310127233790",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.9303426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-waistCm-220",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 220,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 99.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "99.8654519037991306660724729807481454705316887403236988747248",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "6.6096573503435459767058214924031099927785076526547841611232"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-triglyceridesMgDl-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 1,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 0.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "0.633394399130169987074525082723653382938449789910572964915143",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-5.0554780849301857530575167192628129140622986582314141015224"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-triglyceridesMgDl-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000,
+        "ggtUl": 35
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 89.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "89.9183215568627909754082711139249196270845929143780330519742",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.1881819590134187374245430614294266248452021258035710941338"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-ggtUl-1",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 1
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 5.6,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "5.55624181959833935040483770201043322039721811060873500042743",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-2.8330825578058530453231669786454957782803009555497878965239"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-bound-ggtUl-2000",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 93.2,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "93.2413328670436670433605211716928743287397734648397466612419",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "2.6243654081453620902131592779515955007706807474272523663106"
+        }
+      },
+      "coverage": [
+        "inclusive local numeric bound"
+      ]
+    },
+    {
+      "label": "fli-decimal-strings",
+      "input": {
+        "ageYears": "45",
+        "heightCm": "170",
+        "weightKg": "70",
+        "waistCm": "90",
+        "triglyceridesMgDl": "150",
+        "ggtUl": "35"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "canonical decimal/scientific strings"
+      ]
+    },
+    {
+      "label": "fli-scientific-strings",
+      "input": {
+        "ageYears": "45e0",
+        "heightCm": "170e0",
+        "weightKg": "70e0",
+        "waistCm": "90e0",
+        "triglyceridesMgDl": "150e0",
+        "ggtUl": "35e0"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 43,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "43.0369772935075952808642398829820500419960749953017389332497",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.2803426496564540232941785075968900072214923473452158388768"
+        }
+      },
+      "coverage": [
+        "canonical decimal/scientific strings"
+      ]
+    },
+    {
+      "label": "fli-solved-target-29.94",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "15.8272836369271770495747954501073015352505272599306335851882"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 29.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "29.9399999999999999999999999999999999999999999999999999999989",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.8501566387778584578309594432514601548233238383630505741856"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-29.96",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "15.8483115087606711921968043105011339253533659801066846768094"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 30,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "29.9599999999999999999999999999999999999999999999999999999992",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.8492033487686323726083853724601106250162331152432792078890"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-30",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "15.8904269418128150989083648501202116020376726475536149162252"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 30,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "29.9999999999999999999999999999999999999999999999999999999999",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.8472978603872036137101075065206540249895941717591117367247"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-49.94",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "51.5449794713203848732650012503147441362097021533245262550937"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 49.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "49.9400000000000000000000000000000000000000000000000000000001",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.0024000011520009953290237670894763497830992503288352990666"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-49.96",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "51.6024432688646249018259161028704853990606570409379024018989"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 50,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "49.9599999999999999999999999999999999999999999999999999999983",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "-0.0016000003413334644053932519917309393006110348715804604751"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-50",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "51.7175630299617915786703670518434815977790465746827212610958"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 50,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "50.0",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "0E-58"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-59.94",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "90.6522759428301728470082473589893989265060167223948192794873"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 59.9,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "59.9399999999999999999999999999999999999999999999999999999992",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "0.4029657316508449566238699843435506036145982347231751107666"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-59.96",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "90.7575071397659953382139255323753601208783827935161977517675"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 60,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "59.9599999999999999999999999999999999999999999999999999999987",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "0.4037987187873771187554111713278666337992824453387873524993"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-solved-target-60",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "90.9683887248977505225729529757294014998824351631731952997433"
+      },
+      "kind": "source-numerical",
+      "sourceIds": [
+        "bedogni-2006"
+      ],
+      "expected": {
+        "expectedRejection": false,
+        "expectedRounded": {
+          "value": 60,
+          "bmi": 24.2
+        },
+        "expectedDecimal": {
+          "value": "59.9999999999999999999999999999999999999999999999999999999997",
+          "bmi": "24.2214532871972318339100346020761245674740484429065743944637",
+          "sourceLogit": "0.4054651081081643819780131154643491365719904234624941976140"
+        }
+      },
+      "coverage": [
+        "source-solved FLI target",
+        "logistic sign and rounding neighbourhood"
+      ]
+    },
+    {
+      "label": "fli-null-root",
+      "input": null,
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "root input type"
+    },
+    {
+      "label": "fli-array-root",
+      "input": [],
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "root input type"
+    },
+    {
+      "label": "fli-ageYears-boolean",
+      "input": {
+        "ageYears": true,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-false",
+      "input": {
+        "ageYears": false,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-array",
+      "input": {
+        "ageYears": [
+          45
+        ],
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-object",
+      "input": {
+        "ageYears": {},
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-null",
+      "input": {
+        "ageYears": null,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-missing",
+      "input": {
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-empty",
+      "input": {
+        "ageYears": "",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-whitespace",
+      "input": {
+        "ageYears": " ",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-infinite",
+      "input": {
+        "ageYears": "Infinity",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-nan",
+      "input": {
+        "ageYears": "NaN",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-hex",
+      "input": {
+        "ageYears": "0x2d",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-binary",
+      "input": {
+        "ageYears": "0b101101",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-octal",
+      "input": {
+        "ageYears": "0o55",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-comma",
+      "input": {
+        "ageYears": "1,5",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-underscore",
+      "input": {
+        "ageYears": "1_000",
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-below-min",
+      "input": {
+        "ageYears": 17.999,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ageYears-above-max",
+      "input": {
+        "ageYears": 75.001,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-boolean",
+      "input": {
+        "ageYears": 45,
+        "heightCm": true,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-false",
+      "input": {
+        "ageYears": 45,
+        "heightCm": false,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-array",
+      "input": {
+        "ageYears": 45,
+        "heightCm": [
+          170
+        ],
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-object",
+      "input": {
+        "ageYears": 45,
+        "heightCm": {},
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-null",
+      "input": {
+        "ageYears": 45,
+        "heightCm": null,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-missing",
+      "input": {
+        "ageYears": 45,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-empty",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-whitespace",
+      "input": {
+        "ageYears": 45,
+        "heightCm": " ",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-infinite",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "Infinity",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-nan",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "NaN",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-hex",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "0xaa",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-binary",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "0b10101010",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-octal",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "0o252",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-comma",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "1,5",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-underscore",
+      "input": {
+        "ageYears": 45,
+        "heightCm": "1_000",
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-below-min",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 99.999,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-heightCm-above-max",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 230.001,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-boolean",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": true,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-false",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": false,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-array",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": [
+          70
+        ],
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-object",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": {},
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-null",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": null,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-missing",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-empty",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-whitespace",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": " ",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-infinite",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "Infinity",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-nan",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "NaN",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-hex",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "0x46",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-binary",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "0b1000110",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-octal",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "0o106",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-comma",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "1,5",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-underscore",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": "1_000",
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-below-min",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 19.999,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-weightKg-above-max",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 400.001,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-boolean",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": true,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-false",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": false,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-array",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": [
+          90
+        ],
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-object",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": {},
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-null",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": null,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-missing",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-empty",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-whitespace",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": " ",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-infinite",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "Infinity",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-nan",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "NaN",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-hex",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "0x5a",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-binary",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "0b1011010",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-octal",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "0o132",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-comma",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "1,5",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-underscore",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": "1_000",
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-below-min",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 39.999,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-waistCm-above-max",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 220.001,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-boolean",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": true,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-false",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": false,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-array",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": [
+          150
+        ],
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-object",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": {},
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-null",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": null,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-missing",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-empty",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-whitespace",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": " ",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-infinite",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "Infinity",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-nan",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "NaN",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-hex",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "0x96",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-binary",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "0b10010110",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-octal",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "0o226",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-comma",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "1,5",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-underscore",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": "1_000",
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-below-min",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 0.999,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-triglyceridesMgDl-above-max",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 2000.001,
+        "ggtUl": 35
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-boolean",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": true
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-false",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": false
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-array",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": [
+          35
+        ]
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-object",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": {}
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-null",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": null
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-missing",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-empty",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": ""
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-whitespace",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": " "
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-infinite",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "Infinity"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-nan",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "NaN"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-hex",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "0x23"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-binary",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "0b100011"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-octal",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "0o43"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-comma",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "1,5"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-underscore",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": "1_000"
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-below-min",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 0.999
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    },
+    {
+      "label": "fli-ggtUl-above-max",
+      "input": {
+        "ageYears": 45,
+        "heightCm": 170,
+        "weightKg": 70,
+        "waistCm": 90,
+        "triglyceridesMgDl": 150,
+        "ggtUl": 2000.001
+      },
+      "kind": "input-validation",
+      "sourceIds": [],
+      "expected": {
+        "expectedRejection": true
+      },
+      "scope": "local bounds or engine canonical-number contract; locale normalization occurs separately in UI"
+    }
+  ],
+  "clinicalApproval": "not-performed",
+  "professionalLanguageApproval": "not-performed"
+}

@@ -1,0 +1,9 @@
+cff-version: 1.2.0
+message: "Cite this software and the original scientific method separately."
+title: "ELUCENIA tool-jas-fatty-liver-index — Fatty Liver Index · Bedogni 2006"
+type: software
+authors:
+  - family-names: Guedes
+    given-names: Felipe
+repository-code: "https://github.com/Elucenia/tool-jas-fatty-liver-index"
+license: Apache-2.0

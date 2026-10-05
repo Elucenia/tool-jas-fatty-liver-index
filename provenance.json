@@ -1,0 +1,189 @@
+{
+  "schema": "elucenia-extra4-current-mathematical-candidate-r1",
+  "id": "jas-fatty-liver-index",
+  "baseline": {
+    "id": "jas-fatty-liver-index",
+    "repo": "Elucenia/tool-jas-fatty-liver-index",
+    "commit": "81d97130d1d1e9cb2af8e0a3ec9cdd6379c58666",
+    "tree": "8efbed91e8076f4d78d35ad55e0fc91ed0178888",
+    "currentEntries": [
+      {
+        "path": "README.md",
+        "sha": "af2207e3992f43ed1b3deb46378c2df57214e8a4",
+        "bytes": 199,
+        "sha256": "8f54af5ce5ed8ae544df4cb5d32bfaf93b9188a1076607cde5078f5fdecccf37"
+      }
+    ],
+    "currentFailure": "Only README.md is published; no implementation/tests/ten-language files are present."
+  },
+  "originalImplementation": {
+    "file": "apps/website/src/lib/fatty-liver-index.cjs",
+    "bytes": 1835,
+    "sha256": "04180f497639327e8f258a86c1f17a030eb2c12992b8d1eee20540f0a9517e00"
+  },
+  "methodCopiedByteForByte": true,
+  "packageImplementationFiles": {
+    "method.cjs": "04180f497639327e8f258a86c1f17a030eb2c12992b8d1eee20540f0a9517e00",
+    "calculator.js": "c6204f2e079e3bc3285cdfc2b44e088f95544fea0f939585ce9dcbc7e6dfac5c",
+    "numeric-input.cjs": "78fcd4a16b380c081c150c729d7dd7f4f4324be3e5620729b21e4b04e7af1c4f",
+    "locale-number-format.cjs": "82234360c221ed3b44cc089bcbd68d269e7cd1962b2e942f3971160533baefa7",
+    "calculator.browser.js": "7aa21c2dc8741df5a521f059d0e2ca19281bbd047644aeeacfbfb5904cd3b4f2",
+    "demo-runtime.js": "37bae05b99c180cd04394378945ed3fa6c3efca9c5334bd6ed7b80b89840eda1",
+    "cli.cjs": "f790034a92d5c3bdb31c670cc072a04f0005232a755dc84a0f1088536fe53e61",
+    "tool.json": "29380c25bf396a5eefa16e354d379629d800f10a86f1d31a7089e7bac7e80f21",
+    "localization/pt-BR.json": "0220ce06af29980ebe2a413c52e5d6c0fcff7ce62b3128dcb838614e4a378be9",
+    "localization/en.json": "0df754d3fc5ea647f3ce2f78dd1bf80803352ee5140c859644ee0f59f24975c0",
+    "localization/es.json": "527f81c037107d9b5638e9facb5f68e696c5e4b3afa566a45729a9fef7a146b7",
+    "localization/fr.json": "e2dd08b3e23ca774d05d21562a081e4fc2a2591447dc5887696c64462a1e194e",
+    "localization/de.json": "429cf0f07456121651d6917d2c8d27b7339bc6cf5258ad9d635a69d96c7d060c",
+    "localization/it.json": "5dd3b9990637eb2582c890344b72687f7196cb471611cd203f682a0ba06fd4bd",
+    "localization/ar.json": "73ca6a3ebaf25a0a4e15adca5c097908957e3ba98679fdd1969de87716fe89aa",
+    "localization/zh.json": "27b84d5c176243e8ea4bfdc6b62fb1a60ce90951e2fb654fde7ae8c23bc5d178",
+    "localization/ja.json": "1ba5c1d59ca4d9206d6cf1d4445d768e5ed7c7176806b41c2d04de88c74545ce",
+    "localization/hi.json": "b307b4c75b7e9d92b5e6fdff3d2e93d43957d7dd1c5b448f039f6d19c4dc92ef"
+  },
+  "independentExpectedValues": {
+    "file": "reports/review-20261003/extra-additional-source-oracles.json",
+    "bytes": 844513,
+    "sha256": "0488f820cd353b1d7fe24f759d5d439dd6b46638a951093b93a04ece349e1a3d"
+  },
+  "originalIndependentOracle": {
+    "file": "tests/extra-additional-source-oracle.py",
+    "bytes": 5273,
+    "sha256": "420c95bd5c1f9adfe7131a1ce8c595c259ac88cf14f895460ec38f40a301e286"
+  },
+  "localizations": [
+    {
+      "locale": "pt-BR",
+      "source": {
+        "file": "apps/command-center/private/localization/pt-BR.json",
+        "bytes": 13542498,
+        "sha256": "027b14632bb099f8d429ff1f3ba5c0538d32c4b3bd4c82f84f373aab5942779c"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "en",
+      "source": {
+        "file": "apps/command-center/private/localization/en.json",
+        "bytes": 13624792,
+        "sha256": "14ca8430195fb9f2dfb81523a246729d672a22dea8e97b377c146733baf6c7bb"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "es",
+      "source": {
+        "file": "apps/command-center/private/localization/es.json",
+        "bytes": 13667099,
+        "sha256": "4f40d0b8168406d068f8846cdd96f60d87453d5df7d841229f3cac51ba48c7bb"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "fr",
+      "source": {
+        "file": "apps/command-center/private/localization/fr.json",
+        "bytes": 13711979,
+        "sha256": "839cd7afee6a1f51ade686e9acee6ac137918f53b3abc5114f992b5389fc988b"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "de",
+      "source": {
+        "file": "apps/command-center/private/localization/de.json",
+        "bytes": 13688516,
+        "sha256": "08d0a415ef589f54e962e146904e4ecdfe5b2343d6ac41a7d9471d608ca953df"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "it",
+      "source": {
+        "file": "apps/command-center/private/localization/it.json",
+        "bytes": 13666560,
+        "sha256": "e5b00878192a353fa585f7a3043e354081170750dd8c096b886a27b0e50f302d"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "ar",
+      "source": {
+        "file": "apps/command-center/private/localization/ar.json",
+        "bytes": 13891805,
+        "sha256": "94c9c8e6a50a41cad56e6d3c70127089ec604d6bf5e1fde097519b269d4c91cd"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "zh",
+      "source": {
+        "file": "apps/command-center/private/localization/zh.json",
+        "bytes": 13537617,
+        "sha256": "5bfb5aeeed5720ebd05c4c9703f181431681bde6c963d30f7c5b0d0c5c527ae0"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "ja",
+      "source": {
+        "file": "apps/command-center/private/localization/ja.json",
+        "bytes": 13669299,
+        "sha256": "ebd3f71d122d5855ecf136cd7624ded18dde3c7417251c5c287c88feb959231a"
+      },
+      "approval": "not-performed"
+    },
+    {
+      "locale": "hi",
+      "source": {
+        "file": "apps/command-center/private/localization/hi.json",
+        "bytes": 14323180,
+        "sha256": "7baaffa0b034c05c2dfe9f7c61838c81beaed80cb4ea686e0de2921ad1fedd38"
+      },
+      "approval": "not-performed"
+    }
+  ],
+  "currentMetadata": {
+    "file": "apps/dashboard/private/catalog/additional-tools.json",
+    "bytes": 21021,
+    "sha256": "ead723811c66caaeeb872c66f5d30353da4f60b27eaf6c74bbe2a7c3f397458b"
+  },
+  "rights": {
+    "ownCodeLicense": "Apache-2.0",
+    "ownCodeAttribution": "ELUCENIA · Felipe Guedes",
+    "externalApplicationCodeCopied": false,
+    "paperFullTextCopied": false,
+    "clinicalDataCopied": false,
+    "providerPermissionInvented": false,
+    "unrestrictedPublicationLicenseClaim": false,
+    "sources": [
+      {
+        "id": "bedogni-2006",
+        "url": "https://link.springer.com/article/10.1186/1471-230X-6-33",
+        "access": "Full publisher equation, limitations and rights section read",
+        "edition": "BMC Gastroenterology 2006;6:33",
+        "rights": "Article CC-BY-2.0 with attribution; no complete article, image or clinical data bundled."
+      }
+    ],
+    "methodScope": {
+      "primarySourceIds": [
+        "bedogni-2006"
+      ],
+      "methodEditions": {
+        "FLI": 2006
+      },
+      "policies": "Age18–75 reflects study population. Other input limits are technical software policies, not clinically validated phenotype bounds. No diagnostic cutoff/category is generated."
+    },
+    "clinicalApproval": "not-performed",
+    "professionalLanguageApproval": "not-performed"
+  },
+  "clinicalApproval": "not-performed",
+  "professionalLanguageApproval": "not-performed",
+  "GitHubWrites": 0,
+  "documentaryFinalization": {
+    "source": "reports/review-20261005-completion/extra4-publication-candidate-manifest-r5.json",
+    "sha256": "d18213535252877013309a2e8ad75d5686795aef7127bff0d4532b83e6e08690",
+    "scope": "Per-tool source/rights scope and explicit method editions; current mathematical modules unchanged; no clinical/professional approval."
+  }
+}
